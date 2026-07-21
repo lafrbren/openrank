@@ -7,6 +7,8 @@ Everything runs on your own machine. No account, no credits, no uploading your f
 **What you see in the preview is what renders** — the export is measured from the live DOM, not
 approximated from it.
 
+![The OpenRank studio: title editor, frame and caption settings on the left, live 9:16 preview on the right showing a five-clip countdown with every caption in place beside its rank](https://raw.githubusercontent.com/lafrbren/openrank/main/docs/screenshot.png)
+
 ## Install
 
 Requires **Node 18+**, **ffmpeg**, and **yt-dlp**:

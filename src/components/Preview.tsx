@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useProject, rankOf } from '../store'
 import { fontStack } from '../fonts'
+import { sanitizeTitleHtml } from '../sanitizeTitle'
 import Icon from './Icon'
 
 /** Live 9:16 preview compositing background, video (height% + crop), title, rank numbers, caption. */
@@ -65,6 +66,7 @@ export default function Preview() {
   }
   const restart = () => { setSeqIndex(0); setPlaying(true); const v = vid.current; if (v && sequence[0] && current === sequence[0]) { v.currentTime = sequence[0].trimStart; v.play().catch(() => {}) } }
 
+  const safeTitleHtml = useMemo(() => sanitizeTitleHtml(titleHtml), [titleHtml])
   const barPct = (100 - videoHeight) / 2
   const strokeCss = titleStyle.stroke > 0
     ? { WebkitTextStroke: `${titleStyle.stroke / 2}px ${titleStyle.strokeColor}`, paintOrder: 'stroke fill' as const }
@@ -104,7 +106,7 @@ export default function Preview() {
             textAlign: titleStyle.align,
             ...strokeCss,
           }}
-          dangerouslySetInnerHTML={{ __html: titleHtml || '' }}
+          dangerouslySetInnerHTML={{ __html: safeTitleHtml }}
         />
 
         {/* full rank column 1..N; caption appears beside the rank that's playing */}
