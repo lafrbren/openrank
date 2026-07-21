@@ -1,0 +1,25 @@
+node_modules/
+dist/
+dev-dist/
+
+# Working files — downloaded clips and finished renders.
+# The app writes these to ~/.openrank, but older checkouts kept them here.
+media/
+renders/
+
+.DS_Store
+*.log
+.env
+.env.local
+
+# Local tooling scratch
+.playwright-mcp/
+.impeccable/live/
+.impeccable/hook.cache.json
+.impeccable/config.local.json
+.claude/skills/
+.claude/settings.local.json
+
+# Screenshots of viblo.ai used while reverse-engineering the workflow.
+# Someone else's product UI — not ours to republish.
+reference/

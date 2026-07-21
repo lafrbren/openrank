@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-21T08:20:00.000Z",
+  "title": "Design System: OpenRank",
+  "extensions": {
+    "colorMeta": {
+      "rank": {
+        "role": "primary",
+        "displayName": "Rank Amber",
+        "canonical": "#e0930f",
+        "tonalRamp": ["#2b1c02", "#4a3005", "#6d4708", "#8f5d09", "#b4740a", "#e0930f", "#f0c579", "#fdf4e3"]
+      },
+      "rank-deep": { "role": "primary", "displayName": "Rank Amber Deep", "canonical": "#b4740a" },
+      "rank-wash": { "role": "primary", "displayName": "Rank Wash", "canonical": "#fdf4e3" },
+      "rank-edge": { "role": "primary", "displayName": "Rank Edge", "canonical": "#f0dcb4" },
+      "commit": {
+        "role": "secondary",
+        "displayName": "Commit Crimson",
+        "canonical": "#c31840",
+        "tonalRamp": ["#2c0510", "#4a0819", "#6d0c25", "#8c0d28", "#a1102f", "#c31840", "#e78ba0", "#fdecef"]
+      },
+      "commit-deep": { "role": "secondary", "displayName": "Commit Deep", "canonical": "#a1102f" },
+      "commit-press": { "role": "secondary", "displayName": "Commit Press", "canonical": "#8c0d28" },
+      "commit-wash": { "role": "secondary", "displayName": "Commit Wash", "canonical": "#fdecef" },
+      "commit-edge": { "role": "secondary", "displayName": "Commit Edge", "canonical": "#f3c6cf" },
+      "commit-ink": { "role": "secondary", "displayName": "Commit Ink", "canonical": "#8f1030" },
+      "trim-in": {
+        "role": "tertiary",
+        "displayName": "Trim In",
+        "canonical": "#0f8a5f",
+        "tonalRamp": ["#022014", "#053722", "#084e31", "#0b6a43", "#0f8a5f", "#2fb185", "#7fd6b6", "#dcf3e9"]
+      },
+      "focus": {
+        "role": "tertiary",
+        "displayName": "Focus Violet",
+        "canonical": "#5230d9",
+        "tonalRamp": ["#140a3a", "#20105c", "#2e177f", "#3e21a6", "#5230d9", "#8067e8", "#b4a4f3", "#ece7fd"]
+      },
+      "room": {
+        "role": "neutral",
+        "displayName": "Room",
+        "canonical": "#eceef2",
+        "tonalRamp": ["#14161c", "#2b2f39", "#454b59", "#596070", "#858c9c", "#c8cfdb", "#dfe3ea", "#eceef2"]
+      },
+      "surface": { "role": "neutral", "displayName": "Surface", "canonical": "#ffffff" },
+      "sunk": { "role": "neutral", "displayName": "Sunk", "canonical": "#f5f7fa" },
+      "line": { "role": "neutral", "displayName": "Line", "canonical": "#dfe3ea" },
+      "line-strong": { "role": "neutral", "displayName": "Line Strong", "canonical": "#c8cfdb" },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#14161c" },
+      "muted": { "role": "neutral", "displayName": "Muted", "canonical": "#596070" },
+      "faint": { "role": "neutral", "displayName": "Faint", "canonical": "#858c9c" },
+      "press": { "role": "neutral", "displayName": "Press", "canonical": "#eceef3" },
+      "on-signal": { "role": "neutral", "displayName": "On Signal", "canonical": "#ffffff" },
+      "letterbox": { "role": "neutral", "displayName": "Letterbox", "canonical": "#0e0f13" }
+    },
+    "typographyMeta": {
+      "wordmark": { "displayName": "Wordmark", "purpose": "The brand only." },
+      "numeral": { "displayName": "Numeral", "purpose": "Rank medals. The signature element." },
+      "heading": { "displayName": "Heading", "purpose": "Panel and section headings, sentence case." },
+      "body": { "displayName": "Body", "purpose": "All interface text and controls." },
+      "data": { "displayName": "Data", "purpose": "Every number the operator reads or types." },
+      "small": { "displayName": "Small", "purpose": "Helper text under controls." },
+      "label": { "displayName": "Label", "purpose": "Mono uppercase field-group labels." }
+    },
+    "shadows": [
+      { "name": "surface-rest", "value": "0 1px 2px rgba(20,22,28,0.05)", "purpose": "Every panel. Separates white from the gray room without being noticed." },
+      { "name": "entry-lift", "value": "0 1px 2px rgba(20,22,28,0.06), 0 8px 20px -12px rgba(20,22,28,0.25)", "purpose": "Clip entries on hover — the only reorderable objects." },
+      { "name": "slide-frame", "value": "0 0 0 1px #c8cfdb, 0 18px 44px -20px rgba(20,22,28,0.45)", "purpose": "The preview, framed entirely from outside so export geometry stays exact." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.2, 0.7, 0.2, 1)", "purpose": "Default easing for state transitions." },
+      { "name": "duration-state", "value": "150-180ms", "purpose": "Hover, border, and background state shifts. Motion conveys state only." }
+    ],
+    "breakpoints": [
+      { "name": "stack", "value": "960px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Rank Medal",
+      "kind": "custom",
+      "refersTo": "rank-medal",
+      "description": "The signature object: a clip's position in the ranking.",
+      "html": "<span class=\"ds-rank-medal\">1</span>",
+      "css": ".ds-rank-medal { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: #e0930f; color: #14161c; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 1.375rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }"
+    },
+    {
+      "name": "Rank Medal (ghost)",
+      "kind": "custom",
+      "refersTo": "rank-medal",
+      "description": "An unfilled slot on the add-a-clip card. Reads as a slot, not a rank.",
+      "html": "<span class=\"ds-rank-medal-ghost\">3</span>",
+      "css": ".ds-rank-medal-ghost { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: transparent; color: #858c9c; border: 1.5px dashed #c8cfdb; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 1.375rem; font-weight: 600; line-height: 1; }"
+    },
+    {
+      "name": "Commit Button",
+      "kind": "button",
+      "refersTo": "button-primary-commit",
+      "description": "The render control. Exactly one per screen.",
+      "html": "<button class=\"ds-btn-commit\">Render the countdown</button>",
+      "css": ".ds-btn-commit { width: 100%; padding: 13px; border: 1px solid #c31840; border-radius: 10px; background: #c31840; color: #fff; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 0.9375rem; font-weight: 600; cursor: pointer; transition: background 0.15s cubic-bezier(0.2,0.7,0.2,1); } .ds-btn-commit:hover { background: #a1102f; border-color: #a1102f; } .ds-btn-commit:active { background: #8c0d28; } .ds-btn-commit:focus-visible { outline: 2px solid #5230d9; outline-offset: 2px; }"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Default control for anything that isn't committing work.",
+      "html": "<button class=\"ds-btn-quiet\">Shuffle</button>",
+      "css": ".ds-btn-quiet { padding: 7px 10px; border-radius: 8px; background: #fff; border: 1px solid #dfe3ea; color: #14161c; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 0.875rem; cursor: pointer; transition: background 0.15s ease, border-color 0.15s ease; } .ds-btn-quiet:hover { background: #f5f7fa; border-color: #c8cfdb; } .ds-btn-quiet:active { background: #eceef3; } .ds-btn-quiet:focus-visible { outline: 2px solid #5230d9; outline-offset: 2px; }"
+    },
+    {
+      "name": "Line Icon",
+      "kind": "icon",
+      "refersTo": "icon",
+      "description": "One 16-unit grid, one 1.5 stroke weight, currentColor. No emoji anywhere in the chrome — a glyph the operator's font renders differently on every machine is not a design decision.",
+      "html": "<button class=\"ds-btn-icon\" title=\"Move up\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 12.5v-9M4 7.5 8 3.5l4 4\"/></svg></button>",
+      "css": ".ds-btn-icon { display: inline-flex; align-items: center; justify-content: center; padding: 7px 10px; border-radius: 8px; background: #fff; border: 1px solid #dfe3ea; color: #14161c; cursor: pointer; } .ds-btn-icon:hover { background: #f5f7fa; border-color: #c8cfdb; } .ds-btn-icon:focus-visible { outline: 2px solid #5230d9; outline-offset: 2px; }"
+    },
+    {
+      "name": "Number Field",
+      "kind": "input",
+      "refersTo": "numfield",
+      "description": "The only numeric control. Steppers and value share one shell and one focus ring; typing is a draft that is clamped on blur or Enter, never per keystroke. Steppers reach 44px under pointer: coarse.",
+      "html": "<span class=\"ds-numfield\"><button type=\"button\" class=\"ds-numfield-step\" aria-label=\"Decrease\">–</button><input type=\"number\" value=\"80\" aria-label=\"video height\" /><button type=\"button\" class=\"ds-numfield-step\" aria-label=\"Increase\">+</button></span>",
+      "css": ".ds-numfield { display: inline-flex; align-items: stretch; background: #f5f7fa; border: 1px solid #dfe3ea; border-radius: 8px; } .ds-numfield:hover { border-color: #c8cfdb; } .ds-numfield:focus-within { outline: 2px solid #5230d9; outline-offset: 2px; } .ds-numfield input { width: 54px; padding: 6px 2px; text-align: center; background: transparent; border: none; font-family: 'Space Mono', monospace; font-size: 0.8125rem; color: #14161c; appearance: textfield; } .ds-numfield input:focus-visible { outline: none; } .ds-numfield-step { display: inline-flex; align-items: center; justify-content: center; width: 28px; padding: 0; background: transparent; border: none; color: #596070; cursor: pointer; } .ds-numfield-step:hover { background: #eceef3; color: #14161c; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Sunk below the surface. Numeric variants are always mono.",
+      "html": "<input class=\"ds-input\" placeholder=\"TikTok, Instagram, or YouTube video link\" />",
+      "css": ".ds-input { width: 100%; padding: 8px 11px; border-radius: 8px; background: #f5f7fa; border: 1px solid #dfe3ea; color: #14161c; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 0.875rem; } .ds-input::placeholder { color: #596070; } .ds-input:hover { border-color: #c8cfdb; } .ds-input:focus-visible { outline: 2px solid #5230d9; outline-offset: 2px; }"
+    },
+    {
+      "name": "Work Surface",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "A panel on the light table. Never nested.",
+      "html": "<section class=\"ds-panel\"><h3 class=\"ds-panel-head\">Running order</h3><p class=\"ds-panel-body\">Counts down from the last rank to #1.</p></section>",
+      "css": ".ds-panel { background: #fff; border: 1px solid #dfe3ea; border-radius: 12px; padding: 18px 20px; box-shadow: 0 1px 2px rgba(20,22,28,0.05); } .ds-panel-head { margin: 0 0 14px; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.005em; color: #14161c; } .ds-panel-body { margin: 0; color: #596070; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 0.75rem; }"
+    },
+    {
+      "name": "Order Position",
+      "kind": "chip",
+      "refersTo": "order-position",
+      "description": "A slot in the running order. Mono, amber, recessed.",
+      "html": "<span class=\"ds-order-pos\">1</span>",
+      "css": ".ds-order-pos { width: 24px; height: 24px; border-radius: 6px; background: #fdf4e3; color: #b4740a; border: 1px solid #f0dcb4; display: inline-flex; align-items: center; justify-content: center; font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.8125rem; font-weight: 700; }"
+    },
+    {
+      "name": "Mono Field Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Names a group of controls.",
+      "html": "<span class=\"ds-field-label\">Rank numbers</span>",
+      "css": ".ds-field-label { display: block; font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: #596070; }"
+    },
+    {
+      "name": "Download Link",
+      "kind": "button",
+      "refersTo": "download-link",
+      "description": "The finished artifact. Amber, because the render is complete.",
+      "html": "<a class=\"ds-download\" href=\"#\">Download MP4</a>",
+      "css": ".ds-download { display: inline-flex; align-items: center; gap: 6px; padding: 10px 15px; border-radius: 8px; background: #e0930f; border: 1px solid #b4740a; color: #14161c; text-decoration: none; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; } .ds-download:hover { background: #b4740a; } .ds-download:focus-visible { outline: 2px solid #5230d9; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Light Table",
+    "overview": "A cool, calibrated worksurface in daylight. One person sits at it, cuts clips, and inspects the result — and the 9:16 preview sits on that surface like a slide on a light box: the single dark, saturated object in an otherwise quiet room. Everything else is white worksurface, hairline rule, and an exact number set in mono.\n\nThe system's governing tension: the product this tool makes is loud, and the tool itself is not. Poster faces exist in this project only as choices the operator applies to the video. They never appear in the interface.\n\nThis rejects the generic dark SaaS dashboard it started as, and equally rejects the obvious light alternative: white cards plus a blue primary button, which is precisely what viblo.ai looks like.",
+    "keyCharacteristics": [
+      "Cool light neutrals; never cream, sand, or paper-warm",
+      "One UI family (Space Grotesk); monospace reserved strictly for measured values",
+      "No display faces anywhere in the interface",
+      "Exactly two signal colours, each with one job",
+      "The preview is the only dark object on screen"
+    ],
+    "rules": [
+      { "name": "The Two Signals Rule", "body": "Amber means rank. Crimson means commit. A colour that means both means nothing. If a new element needs emphasis and is neither a ranking artifact nor a committing control, it gets weight, size, or position — not a third accent.", "section": "colors" },
+      { "name": "The Cool Floor Rule", "body": "Every neutral in this system is cool. No cream, sand, bone, parchment, or warm-tinted near-white; that band is the saturated default of the moment and it also misleads the eye when judging colour in the video beside it.", "section": "colors" },
+      { "name": "The Amber-Is-A-Fill Rule", "body": "#e0930f never appears as text on a light surface. When amber must be read as type, it is #b4740a.", "section": "colors" },
+      { "name": "The Mono Numeral Rule", "body": "Every number the operator reads or types is set in Space Mono. A number in the UI face is a bug.", "section": "typography" },
+      { "name": "The No-Display-Type Rule", "body": "No display or poster face appears anywhere in the interface. Anton, Bangers, Archivo Black and the rest are content, offered to the operator as choices for the video. Putting them in the chrome breaks the division the whole product rests on.", "section": "typography" },
+      { "name": "The Sentence Case Rule", "body": "Headings are sentence case. Tracked uppercase is reserved for mono field labels; it is never applied as a decorative rhythm above every section.", "section": "typography" },
+      { "name": "The Bezel-Not-Border Rule", "body": "The preview frame is built entirely from box-shadow drawn outside the box. The export maps output coordinates from this element's bounding box, so a border shifts every exported overlay.", "section": "elevation" },
+      { "name": "The Sunk-Input Rule", "body": "Controls that accept input are tinted below the surface (#f5f7fa), never raised. Raised inputs on a light theme read as buttons.", "section": "elevation" },
+      { "name": "The Earned Numeral Rule", "body": "Numbered markers are normally AI scaffolding, and in this one product they are not: the clips genuinely are an ordered ranking and the running order genuinely is a countdown. Rank numerals are load-bearing content and must never be stripped as decoration.", "section": "components" },
+      { "name": "The Drawn Icon Rule", "body": "No emoji and no Unicode symbol glyphs in the interface. They render at a different weight, colour, and baseline on every machine, so they cannot be part of a design system. Every icon is drawn on the 16-unit grid at 1.5 stroke in currentColor, and lives in src/components/Icon.tsx.", "section": "components" }
+    ],
+    "dos": [
+      "Do set every number the operator reads or types in Space Mono, per The Mono Numeral Rule.",
+      "Do reuse a name from src/components/Icon.tsx for a new control's icon, or add one to it — never reach for a Unicode glyph.",
+      "Do keep amber for rank and crimson for commit; reach for weight or position when something else needs emphasis.",
+      "Do use #b4740a when amber must be read as text, never #e0930f.",
+      "Do frame the preview stage from outside with box-shadow only, so export coordinate mapping stays exact.",
+      "Do give every control the full state set — default, hover, active, disabled, focus — and a visible violet focus ring.",
+      "Do keep transitions in the 150–250ms band, and only for state changes."
+    ],
+    "donts": [
+      "Don't put a display or poster face in the interface. They belong to the video output.",
+      "Don't build a generic dark SaaS dashboard — the near-black-plus-one-blue-accent shape this project started as.",
+      "Don't recreate viblo.ai: white cards with a blue primary button, templated and credit-metered.",
+      "Don't import professional NLE density: multi-track timelines and stacked panel furniture.",
+      "Don't let it become a toy meme generator.",
+      "Don't use warm near-whites — cream, sand, bone, parchment. Every neutral here is cool.",
+      "Don't add orchestrated page-load animation. Motion conveys state; it does not introduce the page.",
+      "Don't use a border-left/border-right over 1px as a coloured accent stripe.",
+      "Don't apply background-clip: text gradients, or decorative blur and glass.",
+      "Don't nest a panel inside a panel.",
+      "Don't add a tracked uppercase eyebrow above every section.",
+      "Don't use emoji or Unicode symbol glyphs as interface icons. Draw the icon."
+    ]
+  }
+}
